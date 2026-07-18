@@ -1,50 +1,80 @@
-# Module 7 – Spring REST using Spring Boot 3
+# Module 7 - Spring Boot 3 REST APIs & JWT Security
 
-This module covers REST API development, Spring Security, and JWT Authentication using Spring Boot.
+## Overview
 
-## Projects
-
-### 1. Spring REST Hands-on
-
-**Project:** `spring-rest-handson`
-
-#### Employee REST API
-- Employee model
-- Department model
-- REST Controller
-- GET Employee API
-- JSON response using Spring Boot
-
-#### REST Service Hands-ons
-- Country REST API
-- Spring REST Controller
-- Service Layer
-- JSON Serialization
+This module focuses on building RESTful web services with Spring Boot 3 while implementing secure authentication using Spring Security and JSON Web Tokens (JWT). It demonstrates the development of APIs, service-layer architecture, and authentication mechanisms commonly used in enterprise applications.
 
 ---
 
-### 2. JWT Hands-on
+# Projects Included
 
-**Project:** `JWT-handson`
+## 1. Spring REST Application
 
-#### Hands-ons Completed
+**Project Name:** `spring-rest-handson`
 
-- Hands-on 1 – Spring Security Configuration
-- Hands-on 2 – Basic Authentication
-- Hands-on 3 – Authentication API
-- Hands-on 4 – Decode Basic Authorization Header
-- Hands-on 5 – JWT Token Generation
-- Hands-on 6 – JWT Token Validation using Filter
+### Employee Management API
+
+Features implemented:
+
+- Employee entity creation
+- Department entity creation
+- REST endpoints for employee data
+- Spring Boot REST controllers
+- JSON-based request and response handling
+
+### Country REST Service
+
+Implemented the following components:
+
+- Country REST endpoints
+- Controller layer
+- Service layer
+- Automatic JSON serialization and deserialization
 
 ---
 
-## Technologies Used
+## 2. JWT Authentication Application
+
+**Project Name:** `JWT-handson`
+
+### Exercises Completed
+
+- Configured Spring Security for the application
+- Implemented Basic Authentication
+- Developed an authentication endpoint
+- Extracted and decoded the Basic Authorization header
+- Generated JWT tokens after successful authentication
+- Validated JWT tokens using a custom security filter
+
+---
+
+# Tools & Technologies
 
 - Java 17
-- Spring Boot
+- Spring Boot 3
 - Spring Security
-- REST APIs
-- JWT
+- RESTful Web Services
+- JSON Web Token (JWT)
 - Maven
 - IntelliJ IDEA
+
+---
+
+# Key Learning Outcomes
+
+After completing this module, I gained practical experience in:
+
+- Designing RESTful APIs with Spring Boot
+- Structuring applications using Controller and Service layers
+- Working with JSON request and response objects
+- Configuring Spring Security for authentication
+- Creating and validating JWT tokens
+- Securing REST endpoints using token-based authentication
+- Developing scalable backend services following Spring Boot best practices
+
+---
+
+## Author
+
+**Kaushal Kishor**
 
