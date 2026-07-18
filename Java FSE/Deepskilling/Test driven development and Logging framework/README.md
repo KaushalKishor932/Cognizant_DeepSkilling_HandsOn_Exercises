@@ -1,113 +1,120 @@
-# Module 4 - Test Driven Development and Logging Framework
+# Module 4 - Test Driven Development (TDD) & Logging
 
-## Overview
+## Introduction
 
-This module focuses on software testing and logging using industry-standard frameworks. It covers unit testing with JUnit, mocking with Mockito, and application logging using SLF4J and Logback.
+This module demonstrates the basics of software testing and application logging in Java. It includes creating unit tests with JUnit, using Mockito for mocking dependencies, and implementing logging with SLF4J and Logback to improve debugging and application monitoring.
 
-## Technologies Used
+## Tech Stack
 
-* Java
-* Maven
-* JUnit 4.13.2
-* Mockito 4.11.0
-* SLF4J 1.7.30
-* Logback 1.2.3
-
----
-
-## JUnit Exercises
-
-### Exercise 01 - Setting Up JUnit
-
-* Configured JUnit in a Maven project.
-* Created and executed a basic test case.
-
-### Exercise 02 - Writing Basic JUnit Tests
-
-* Developed test cases for Calculator operations.
-* Verified addition and subtraction methods.
-
-### Exercise 03 - Assertions in JUnit
-
-* Used JUnit assertion methods:
-
-    * assertEquals()
-    * assertTrue()
-    * assertFalse()
-    * assertNull()
-    * assertNotNull()
-
-### Exercise 04 - AAA Pattern, Setup and Teardown
-
-* Implemented Arrange-Act-Assert pattern.
-* Used @Before and @After annotations.
-* Tested BankAccount functionality.
+- Java
+- Maven
+- JUnit 4.13.2
+- Mockito 4.11.0
+- SLF4J 1.7.30
+- Logback 1.2.3
 
 ---
 
-## Mockito Exercises
+# JUnit Practice
 
-### Exercise 01 - Mocking and Stubbing
+## Exercise 1 - JUnit Project Configuration
 
-* Created mock objects.
-* Stubbed methods to return predefined values.
+- Added JUnit dependency to a Maven project.
+- Created and ran the first unit test successfully.
 
-### Exercise 02 - Verifying Interactions
+## Exercise 2 - Unit Testing Calculator
 
-* Verified method calls using Mockito verify().
+- Wrote test cases for calculator methods.
+- Checked the correctness of addition and subtraction operations.
 
-### Exercise 03 - Argument Matching
+## Exercise 3 - Assertion Methods
 
-* Used Mockito argument matchers such as anyString().
+Applied different assertion techniques provided by JUnit, including:
 
-### Exercise 04 - Handling Void Methods
+- `assertEquals()`
+- `assertTrue()`
+- `assertFalse()`
+- `assertNull()`
+- `assertNotNull()`
 
-* Mocked and verified void methods.
+## Exercise 4 - Arrange, Act, Assert Pattern
 
-### Exercise 05 - Mocking and Stubbing with Multiple Returns
-
-* Configured consecutive return values using thenReturn().
-
-### Exercise 06 - Verifying Interaction Order
-
-* Verified execution order using InOrder.
-
-### Exercise 07 - Handling Void Methods with Exceptions
-
-* Simulated exceptions using doThrow().
-* Tested exception handling scenarios.
+- Followed the AAA testing approach.
+- Initialized test data using `@Before`.
+- Performed cleanup with `@After`.
+- Validated operations of the `BankAccount` class.
 
 ---
 
-## SLF4J Logging Exercises
+# Mockito Practice
 
-### Exercise 01 - Logging Error Messages and Warning Levels
+## Exercise 1 - Creating Mocks
 
-* Implemented logging using SLF4J.
-* Generated ERROR and WARN level logs.
+- Generated mock objects for dependencies.
+- Returned predefined responses through stubbing.
 
-### Exercise 02 - Parameterized Logging
+## Exercise 2 - Interaction Verification
 
-* Used parameterized logging placeholders {}.
-* Logged dynamic values efficiently.
+- Confirmed expected method invocations with `verify()`.
 
-### Exercise 03 - Using Different Appenders
+## Exercise 3 - Argument Matchers
 
-* Configured Logback using logback.xml.
-* Implemented ConsoleAppender and FileAppender.
-* Generated logs in both console and log file.
+- Tested methods using matchers like `anyString()` and similar utilities.
+
+## Exercise 4 - Testing Void Methods
+
+- Mocked methods with no return value.
+- Verified their execution.
+
+## Exercise 5 - Consecutive Return Values
+
+- Configured mocked methods to return multiple values using `thenReturn()`.
+
+## Exercise 6 - Method Execution Sequence
+
+- Verified the order of method calls with `InOrder`.
+
+## Exercise 7 - Exception Simulation
+
+- Used `doThrow()` to simulate exceptions.
+- Tested application behavior under error conditions.
 
 ---
 
-## Learning Outcomes
+# Logging with SLF4J
 
-* Understand Test Driven Development concepts.
-* Write and execute unit tests using JUnit.
-* Create mock objects and verify behavior using Mockito.
-* Implement structured logging using SLF4J and Logback.
-* Configure appenders and logging levels.
-* Build maintainable and testable Java applications.
+## Exercise 1 - Warning and Error Logging
 
-## Author
+- Integrated SLF4J into the project.
+- Produced log messages with WARN and ERROR levels.
 
-Varshini Keerthi
+## Exercise 2 - Dynamic Log Messages
+
+- Implemented parameterized logging using `{}` placeholders.
+- Logged runtime values efficiently.
+
+## Exercise 3 - Logback Configuration
+
+- Configured logging through `logback.xml`.
+- Used both `ConsoleAppender` and `FileAppender`.
+- Stored logs in the console as well as an external log file.
+
+---
+
+# Skills Gained
+
+After completing this module, the following concepts were practiced:
+
+- Test Driven Development (TDD) fundamentals
+- Writing effective unit tests using JUnit
+- Mocking dependencies with Mockito
+- Verifying interactions between objects
+- Configuring application logging with SLF4J and Logback
+- Managing log levels and appenders
+- Developing reliable, maintainable, and well-tested Java applications
+
+---
+
+## Developer
+
+**Kaushal Kishor**
