@@ -57,13 +57,12 @@ Cognizant-Digital-Nurture-5.0
 ├── 📁 Spring REST using Spring Boot 3
 ├── 📁 Microservices with Spring Boot and Spring Cloud
 ├── 📁 React
-├── 📁 React Routing
-├── 📁 React Hooks
-├── 📁 State Management using Redux
-├── 📁 Git Version Control
-├── 📁 Docker
-├── 📁 Jenkins CI/CD
-└── 📁 Capstone Project
+├── 📁 Agile Methodology 
+├── 📁 Cloud Funddamentals
+├── 📁 GIT
+├── 📁 Conatinerization using Docker
+├── 📁 DevOps and CI/CD
+└── 📁 GenAI Fundamentals
 ```
 
 ---
@@ -86,10 +85,13 @@ Each module includes practical implementations of concepts such as:
 - Spring Security and JWT Authentication
 - Microservices Architecture
 - React Frontend Development
-- State Management with Redux
+- Agile Methologies
 - Version Control using Git
 - Containerization with Docker
-- Continuous Integration using Jenkins
+- Continuous Integration / Continuous Delivery
+- Cloud Fundamentals
+- GenAI Fundamentals
+- Prompt Engineering Basics
 
 ---
 
