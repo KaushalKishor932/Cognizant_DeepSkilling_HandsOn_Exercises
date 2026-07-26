@@ -1,100 +1,114 @@
-# Git Hands-on Lab Solution
+<div align="center">
 
-## Experiment Name
+# Git Hands-on Lab 1
 
-**Git Configuration and Basic Git Commands**
+### Git Configuration and Basic Git Commands
 
----
+![Git](https://img.shields.io/badge/Git-Version%20Control-F05032?logo=git\&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github\&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Completed-success)
 
-# Objective
+**Cognizant Digital Nurture 5.0 — Java FSE**
 
-The objective of this hands-on lab is to:
-
-* Verify the installation of Git on the local machine.
-* Configure Git user information such as username and email address.
-* Configure Notepad++ as the default Git editor.
-* Understand and execute basic Git commands.
-* Create and initialize a local Git repository.
-* Add a file to Git source control.
-* Commit changes to the local repository.
-* Connect the local repository with a remote repository.
-* Push and pull changes between the local and remote repositories.
+</div>
 
 ---
 
-# Prerequisites
+## Overview
 
-Before starting this hands-on lab, ensure that the following requirements are satisfied:
-
-* Git is installed on the system.
-* Git Bash is available.
-* Notepad++ is installed.
-* A GitHub or GitLab account is available.
-* An active internet connection is available.
+This hands-on lab introduces the fundamental concepts and commands of **Git version control**. It covers Git configuration, editor setup, repository initialization, file tracking, committing changes, and synchronization with a remote repository.
 
 ---
 
-# Step 1: Verify Git Installation
+## Objectives
 
-Open **Git Bash** and execute the following command:
+By completing this hands-on lab, the following objectives are achieved:
+
+|  #  | Objective                                                   |
+| :-: | ----------------------------------------------------------- |
+|  01 | Verify the Git installation                                 |
+|  02 | Configure Git username and email                            |
+|  03 | Configure Notepad++ as the default Git editor               |
+|  04 | Create and initialize a local Git repository                |
+|  05 | Create and track files using Git                            |
+|  06 | Stage and commit changes                                    |
+|  07 | Connect the local repository to a remote repository         |
+|  08 | Push and pull changes between local and remote repositories |
+
+---
+
+## Prerequisites
+
+| Requirement             | Description                                |
+| ----------------------- | ------------------------------------------ |
+| **Git**                 | Git must be installed on the local machine |
+| **Git Bash**            | Required to execute Git commands           |
+| **Notepad++**           | Used as the default Git text editor        |
+| **GitHub / GitLab**     | Required for creating a remote repository  |
+| **Internet Connection** | Required for remote repository operations  |
+
+---
+
+## 1. Git Configuration
+
+### 1.1 Verify Git Installation
+
+Open **Git Bash** and execute:
 
 ```bash
 git --version
 ```
 
-### Expected Output
+<details>
+<summary><b>View Expected Output</b></summary>
+
+<br>
 
 ```text
 git version 2.xx.x.windows.x
 ```
 
-**Observation:**
+</details>
 
-If the installed Git version is displayed, Git has been installed successfully and is ready to use.
+> **Note:** If a valid Git version is displayed, Git has been installed successfully and is accessible from the command line.
 
 ---
 
-# Step 2: Configure Git User Information
+### 1.2 Configure Git Username
 
-Git associates every commit with a username and email address. Configure these details before creating commits.
-
-## 1. Configure Username
-
-Execute:
+Configure the username that will be associated with Git commits:
 
 ```bash
 git config --global user.name "Your Name"
 ```
 
-Example:
+**Example:**
 
 ```bash
 git config --global user.name "Rahul Sharma"
 ```
 
-The `--global` option applies this configuration to all Git repositories for the current user.
-
 ---
 
-## 2. Configure Email Address
+### 1.3 Configure Git Email Address
 
-Execute:
+Configure the email address associated with the GitHub/GitLab account:
 
 ```bash
 git config --global user.email "your_email@example.com"
 ```
 
-Example:
+**Example:**
 
 ```bash
 git config --global user.email "rahul@gmail.com"
 ```
 
-It is recommended to use the email address associated with the GitHub or GitLab account.
+> **Tip:** Using the same email address as the GitHub account allows commits to be correctly associated with the GitHub profile.
 
 ---
 
-## 3. Verify Git Configuration
+### 1.4 Verify Git Configuration
 
 Execute:
 
@@ -102,24 +116,23 @@ Execute:
 git config --global --list
 ```
 
-### Expected Output
+<details>
+<summary><b>View Expected Output</b></summary>
+
+<br>
 
 ```text
 user.name=Rahul Sharma
 user.email=rahul@gmail.com
 ```
 
-**Observation:**
-
-The configured username and email address should be displayed correctly.
+</details>
 
 ---
 
-# Step 3: Configure Notepad++ as the Default Git Editor
+## 2. Configure Notepad++ as Git Editor
 
-Git requires a text editor for operations such as entering commit messages. Notepad++ can be configured as the default editor.
-
-## 1. Verify Notepad++ Installation
+### 2.1 Verify Notepad++ Installation
 
 Execute:
 
@@ -127,13 +140,9 @@ Execute:
 notepad++
 ```
 
-### Observation
+If Notepad++ opens successfully, it is accessible from the system PATH.
 
-If Notepad++ opens successfully, it is accessible through the system PATH.
-
-If the command is not recognized, add the Notepad++ installation directory to the Windows Environment Variables.
-
-The default installation path is generally:
+If the command is not recognized, the default installation directory can be added to the Windows Environment Variables:
 
 ```text
 C:\Program Files\Notepad++
@@ -141,7 +150,7 @@ C:\Program Files\Notepad++
 
 ---
 
-## 2. Configure Notepad++ as Git Editor
+### 2.2 Set Notepad++ as Default Git Editor
 
 Execute:
 
@@ -149,11 +158,9 @@ Execute:
 git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -nosession"
 ```
 
-This configures Notepad++ as the default editor for Git operations.
-
 ---
 
-## 3. Verify the Default Editor
+### 2.3 Verify the Editor Configuration
 
 Execute:
 
@@ -161,97 +168,81 @@ Execute:
 git config --global core.editor
 ```
 
-### Expected Output
+<details>
+<summary><b>View Expected Output</b></summary>
+
+<br>
 
 ```text
 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -nosession
 ```
 
-**Observation:**
+</details>
 
-The output confirms that Notepad++ has been successfully configured as the default Git editor.
-
----
-
-# Step 4: Verify Complete Git Configuration
-
-Execute:
-
-```bash
-git config --global --list
-```
-
-### Expected Output
-
-```text
-user.name=Rahul Sharma
-user.email=rahul@gmail.com
-core.editor='C:/Program Files/Notepad++/notepad++.exe' -multiInst -nosession
-```
-
-**Observation:**
-
-Git is now configured with the required username, email address, and default text editor.
+> **Result:** Notepad++ is now configured as the default editor for Git operations.
 
 ---
 
-# Step 5: Create a Local Git Repository
+## 3. Create a Local Git Repository
 
-Create a new directory named **GitDemo**:
+### 3.1 Create the Project Directory
+
+Create a new directory named `GitDemo`:
 
 ```bash
 mkdir GitDemo
 ```
 
-Move into the newly created directory:
+Navigate into the directory:
 
 ```bash
 cd GitDemo
 ```
 
-Initialize the directory as a Git repository:
+---
+
+### 3.2 Initialize the Repository
+
+Execute:
 
 ```bash
 git init
 ```
 
-### Expected Output
+<details>
+<summary><b>View Expected Output</b></summary>
+
+<br>
 
 ```text
 Initialized empty Git repository in .../GitDemo/.git/
 ```
 
-**Observation:**
+</details>
 
-The `git init` command creates a hidden `.git` directory that contains the metadata required by Git to track the repository.
+The `GitDemo` directory is now initialized as a local Git repository.
 
 ---
 
-# Step 6: Create the `welcome.txt` File
+## 4. Create and Track a File
 
-Create a new file named:
+### 4.1 Create `welcome.txt`
 
-```text
-welcome.txt
-```
-
-The file can be created directly from Git Bash using:
+Create a new text file:
 
 ```bash
 echo "Welcome to Git Hands-on Lab" > welcome.txt
 ```
 
-Alternatively, create `welcome.txt` using Notepad++ and add the following content:
+The file contains:
 
 ```text
 Welcome to Git Hands-on Lab
 ```
 
-Save the file inside the **GitDemo** directory.
-
 ---
 
-# Step 7: Check Repository Status
+### 4.2 Check Repository Status
 
 Execute:
 
@@ -259,84 +250,75 @@ Execute:
 git status
 ```
 
-### Expected Output
+<details>
+<summary><b>View Expected Output</b></summary>
+
+<br>
 
 ```text
 Untracked files:
   welcome.txt
 ```
 
-**Observation:**
+</details>
 
-The `welcome.txt` file appears under **Untracked files** because it has been created in the working directory but has not yet been added to Git's staging area.
+The `welcome.txt` file is currently **untracked**, which means Git has detected the file but is not yet tracking its changes.
 
 ---
 
-# Step 8: Add the File to the Staging Area
+## 5. Stage and Commit the File
 
-Add `welcome.txt` to the staging area:
+### 5.1 Add File to the Staging Area
+
+Execute:
 
 ```bash
 git add welcome.txt
 ```
 
-Verify the repository status:
+Verify the status:
 
 ```bash
 git status
 ```
 
-### Expected Output
+<details>
+<summary><b>View Expected Output</b></summary>
+
+<br>
 
 ```text
 Changes to be committed:
-  new file:   welcome.txt
+  new file: welcome.txt
 ```
 
-**Observation:**
-
-The file is now tracked by Git and is ready to be committed.
+</details>
 
 ---
 
-# Step 9: Commit the File Using the Default Editor
+### 5.2 Commit the Changes
 
-Since Notepad++ has been configured as the default Git editor, execute:
+Commit the staged file:
 
 ```bash
-git commit
+git commit -m "Add welcome.txt"
 ```
 
-Notepad++ will open automatically.
+<details>
+<summary><b>View Expected Output</b></summary>
 
-Enter the following commit message:
-
-```text
-Add welcome.txt
-```
-
-Save the file and close Notepad++.
-
-### Expected Output
+<br>
 
 ```text
 1 file changed, 1 insertion(+)
 create mode 100644 welcome.txt
 ```
 
-**Observation:**
-
-The staged `welcome.txt` file has been successfully committed to the local Git repository.
-
-Alternatively, a commit message can be provided directly from Git Bash:
-
-```bash
-git commit -m "Add welcome.txt"
-```
+</details>
 
 ---
 
-# Step 10: Verify the Commit History
+### 5.3 Verify Commit History
 
 Execute:
 
@@ -344,39 +326,29 @@ Execute:
 git log --oneline
 ```
 
-### Expected Output
-
-```text
-<commit-id> Add welcome.txt
-```
-
-Example:
+Example output:
 
 ```text
 a1b2c3d Add welcome.txt
 ```
 
-**Observation:**
-
-The commit appears in the Git history along with its unique commit identifier.
+> The first value is the shortened **commit hash**, followed by the commit message.
 
 ---
 
-# Step 11: Create a Remote Repository
+## 6. Create a Remote Repository
 
 Create a new repository named **GitDemo** on GitHub or GitLab.
 
-When creating the remote repository, it is recommended to keep it empty because the local repository already contains the initial commit.
-
-Do not initialize the remote repository with:
+For a clean initial push, create the remote repository without initializing it with:
 
 * README
 * `.gitignore`
 * License
 
-After creating the repository, copy its HTTPS repository URL.
+After creating the repository, copy its HTTPS URL.
 
-Example:
+**Example:**
 
 ```text
 https://github.com/yourusername/GitDemo.git
@@ -384,9 +356,11 @@ https://github.com/yourusername/GitDemo.git
 
 ---
 
-# Step 12: Connect the Local Repository to the Remote Repository
+## 7. Connect Local and Remote Repositories
 
-Add the remote repository using:
+### 7.1 Add the Remote Repository
+
+Execute:
 
 ```bash
 git remote add origin https://github.com/yourusername/GitDemo.git
@@ -394,26 +368,33 @@ git remote add origin https://github.com/yourusername/GitDemo.git
 
 Replace `yourusername` with the actual GitHub username.
 
-Verify the configured remote:
+---
+
+### 7.2 Verify the Remote Repository
+
+Execute:
 
 ```bash
 git remote -v
 ```
 
-### Expected Output
+<details>
+<summary><b>View Expected Output</b></summary>
+
+<br>
 
 ```text
 origin  https://github.com/yourusername/GitDemo.git (fetch)
 origin  https://github.com/yourusername/GitDemo.git (push)
 ```
 
-**Observation:**
+</details>
 
-The local **GitDemo** repository is now connected to the remote repository through the remote name `origin`.
+The local repository is now connected to the remote repository using the remote name `origin`.
 
 ---
 
-# Step 13: Configure the Main Branch
+## 8. Configure the Main Branch
 
 Rename the current branch to `main`:
 
@@ -421,99 +402,77 @@ Rename the current branch to `main`:
 git branch -M main
 ```
 
-Verify the current branch:
+Verify:
 
 ```bash
 git branch
 ```
 
-### Expected Output
+**Expected Output:**
 
 ```text
 * main
 ```
 
-The `*` symbol indicates the currently active branch.
+The `*` symbol represents the currently active branch.
 
 ---
 
-# Step 14: Push the Local Repository to Remote
+## 9. Push Changes to the Remote Repository
 
-Push the local `main` branch to the remote repository:
+Execute:
 
 ```bash
 git push -u origin main
 ```
 
-### Expected Output
+<details>
+<summary><b>View Expected Output</b></summary>
+
+<br>
 
 ```text
 branch 'main' set up to track 'origin/main'.
 ```
 
-**Observation:**
+</details>
 
-The local repository contents and commit history have been successfully uploaded to the remote repository.
+The local commits are now available in the remote GitHub/GitLab repository.
 
-The `-u` option establishes a tracking relationship between the local `main` branch and the remote `origin/main` branch.
-
-After this initial push, future changes can normally be pushed using:
-
-```bash
-git push
-```
+> **Note:** The `-u` option establishes an upstream tracking relationship. After the initial push, subsequent changes can normally be pushed using only `git push`.
 
 ---
 
-# Step 15: Verify the Repository on GitHub/GitLab
+## 10. Pull Changes from the Remote Repository
 
-Open the **GitDemo** repository in the browser.
-
-Verify that the following file is available:
-
-```text
-welcome.txt
-```
-
-Open the file and confirm that it contains:
-
-```text
-Welcome to Git Hands-on Lab
-```
-
-Also verify that the commit message is visible in the repository history.
-
----
-
-# Step 16: Pull Changes from the Remote Repository
-
-To retrieve the latest changes from the remote repository, execute:
+Execute:
 
 ```bash
 git pull origin main
 ```
 
-If the local repository is already synchronized with the remote repository, the output may contain:
+If the local repository already contains the latest changes:
 
 ```text
 Already up to date.
 ```
 
-**Observation:**
-
-The `git pull` command fetches the latest changes from the remote repository and integrates them into the current local branch.
+The `git pull` command retrieves the latest changes from the remote repository and integrates them into the current local branch.
 
 ---
 
-# Step 17: Verify Final Repository Status
+## 11. Final Verification
 
-Execute:
+Check the repository status:
 
 ```bash
 git status
 ```
 
-### Expected Output
+<details>
+<summary><b>View Expected Output</b></summary>
+
+<br>
 
 ```text
 On branch main
@@ -522,60 +481,73 @@ Your branch is up to date with 'origin/main'.
 nothing to commit, working tree clean
 ```
 
-**Observation:**
+</details>
 
-The clean working tree confirms that all changes have been committed and the local repository is synchronized with the remote repository.
+Also open the **GitDemo** repository on GitHub/GitLab and verify that:
 
----
-
-# Git Commands Used
-
-| Command                           | Description                                               |
-| --------------------------------- | --------------------------------------------------------- |
-| `git --version`                   | Displays the installed Git version                        |
-| `git config --global user.name`   | Configures the Git username                               |
-| `git config --global user.email`  | Configures the Git email address                          |
-| `git config --global core.editor` | Configures the default Git editor                         |
-| `git config --global --list`      | Displays global Git configuration                         |
-| `mkdir GitDemo`                   | Creates the project directory                             |
-| `cd GitDemo`                      | Navigates to the project directory                        |
-| `git init`                        | Initializes a local Git repository                        |
-| `git status`                      | Displays the current repository status                    |
-| `git add welcome.txt`             | Adds the file to the staging area                         |
-| `git commit`                      | Commits staged changes using the configured editor        |
-| `git commit -m "message"`         | Commits changes with a specified message                  |
-| `git log --oneline`               | Displays the commit history in compact format             |
-| `git remote add origin <URL>`     | Connects the local repository to a remote repository      |
-| `git remote -v`                   | Displays configured remote repositories                   |
-| `git branch -M main`              | Renames the current branch to `main`                      |
-| `git branch`                      | Displays local branches                                   |
-| `git push -u origin main`         | Pushes the local branch and establishes upstream tracking |
-| `git pull origin main`            | Retrieves and integrates remote changes                   |
+| Verification                                   | Expected Status |
+| ---------------------------------------------- | :-------------: |
+| Repository is accessible                       |        ✓        |
+| `welcome.txt` is available                     |        ✓        |
+| Commit is visible                              |        ✓        |
+| `main` branch is available                     |        ✓        |
+| Local and remote repositories are synchronized |        ✓        |
 
 ---
 
-# Result
+## Git Commands Reference
 
-The following tasks were successfully completed:
+| Command                           | Description                                        |
+| --------------------------------- | -------------------------------------------------- |
+| `git --version`                   | Displays the installed Git version                 |
+| `git config --global user.name`   | Configures the Git username                        |
+| `git config --global user.email`  | Configures the Git email address                   |
+| `git config --global core.editor` | Configures the default Git editor                  |
+| `git config --global --list`      | Displays the global Git configuration              |
+| `git init`                        | Initializes a new Git repository                   |
+| `git status`                      | Displays the current repository status             |
+| `git add`                         | Adds changes to the staging area                   |
+| `git commit`                      | Records staged changes in the repository           |
+| `git log --oneline`               | Displays the commit history in compact format      |
+| `git remote add origin`           | Connects a local repository to a remote repository |
+| `git remote -v`                   | Displays configured remote repositories            |
+| `git branch -M main`              | Renames the current branch to `main`               |
+| `git push`                        | Uploads local commits to the remote repository     |
+| `git pull`                        | Retrieves and integrates remote changes            |
+
+---
+
+## Result
+
+The Git environment was successfully configured and the complete basic Git workflow was performed.
+
+The following tasks were completed successfully:
 
 * Git installation was verified.
-* Git username and email address were configured.
+* Git username and email were configured.
 * Notepad++ was configured as the default Git editor.
-* A local repository named **GitDemo** was created and initialized.
-* A `welcome.txt` file was created.
-* The file was added to the Git staging area.
-* The file was successfully committed to the local repository.
-* The local repository was connected to a remote GitHub/GitLab repository.
-* The `main` branch was configured and pushed to the remote repository.
-* The repository contents were successfully synchronized using Git push and pull operations.
-* The final repository status was verified as clean.
+* The `GitDemo` local repository was created and initialized.
+* `welcome.txt` was created and added to source control.
+* Changes were staged and committed successfully.
+* The local repository was connected to a remote repository.
+* The `main` branch was pushed to the remote repository.
+* Pull operations were performed successfully.
+* The final repository status was verified.
 
 ---
 
-# Conclusion
+## Conclusion
 
-This hands-on lab demonstrated the fundamental Git workflow, beginning with Git configuration and progressing through repository creation, file tracking, staging, committing, and remote repository synchronization.
+This hands-on lab demonstrated the fundamental workflow of **Git version control**, including configuration, repository initialization, file tracking, staging, committing, and remote repository synchronization.
 
-The experiment also demonstrated how to configure Notepad++ as the default Git editor and how to use essential Git commands such as `git init`, `git status`, `git add`, `git commit`, `git log`, `git remote`, `git push`, and `git pull`.
+The exercise established a practical understanding of essential Git commands and provides the foundation required for subsequent concepts such as **`.gitignore`, branching, merging, merge conflict resolution, and collaborative version control workflows**.
 
-The **GitDemo** repository was successfully created, version-controlled, and synchronized with a remote Git repository, providing practical experience with the basic Git development workflow.
+---
+
+<div align="center">
+
+### Git Hands-on Lab 1 — Completed
+
+**Cognizant Digital Nurture 5.0 | Java FSE**
+
+</div>
