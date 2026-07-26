@@ -1,0 +1,475 @@
+# 🔄 CI/CD — Basic Concepts
+
+> **Cognizant Digital Nurture 5.0 — Java FSE**
+> A beginner-friendly introduction to **Continuous Integration, Continuous Delivery, Continuous Deployment, and CI/CD pipelines**.
+
+---
+
+## 📖 Overview
+
+**CI/CD** is an important software development practice used to automate the process of **integrating, building, testing, and delivering applications**.
+
+CI/CD helps developers identify problems earlier and release software more efficiently.
+
+```text
+CI/CD
+ │
+ ├── CI → Continuous Integration
+ │
+ └── CD → Continuous Delivery / Continuous Deployment
+```
+
+---
+
+## 🔁 What is CI/CD?
+
+CI/CD consists of:
+
+|  Term  | Full Form              | Basic Purpose                           |
+| :----: | :--------------------- | :-------------------------------------- |
+| **CI** | Continuous Integration | Frequently integrate and test code      |
+| **CD** | Continuous Delivery    | Keep software ready for deployment      |
+| **CD** | Continuous Deployment  | Automatically deploy successful changes |
+
+A basic CI/CD process looks like:
+
+```text
+Code
+  ↓
+Build
+  ↓
+Test
+  ↓
+Deploy
+```
+
+---
+
+# 🔨 Continuous Integration (CI)
+
+**Continuous Integration** is the practice of frequently integrating code changes into a shared repository.
+
+Developers regularly push their changes:
+
+```text
+Developer A ──┐
+              │
+Developer B ──┼──► Git Repository
+              │
+Developer C ──┘
+```
+
+After new code is pushed, automated processes can build and test the application.
+
+```text
+Developer
+    │
+    │ Push Code
+    ▼
+Git Repository
+    │
+    ▼
+   Build
+    │
+    ▼
+   Test
+    │
+    ▼
+  Result
+```
+
+---
+
+## 💻 Simple CI Example
+
+A developer makes changes and pushes them:
+
+```bash
+git add .
+git commit -m "Add new feature"
+git push origin main
+```
+
+A CI system can then automatically:
+
+1. Download the latest source code.
+2. Build the application.
+3. Run automated tests.
+4. Report whether the process succeeded or failed.
+
+---
+
+## ✅ Benefits of Continuous Integration
+
+| Benefit                     | Description                                |
+| :-------------------------- | :----------------------------------------- |
+| 🐛 **Early Bug Detection**  | Problems can be identified quickly         |
+| 🧪 **Automated Testing**    | Tests can run automatically                |
+| 🔨 **Automated Builds**     | Application builds can run automatically   |
+| ⚡ **Quick Feedback**        | Developers receive faster results          |
+| 🤝 **Better Collaboration** | Developers frequently integrate their work |
+
+---
+
+# 📦 Continuous Delivery
+
+**Continuous Delivery** extends Continuous Integration.
+
+After the application is successfully built and tested, it is kept in a state where it is **ready for deployment**.
+
+```text
+Code
+  ↓
+Build
+  ↓
+Test
+  ↓
+Ready for Deployment
+  ↓
+Manual Approval
+  ↓
+Production
+```
+
+> 💡 **Simple Definition:**
+> Continuous Delivery means that the application is **always ready to be deployed**, but the final production deployment may require manual approval.
+
+---
+
+# 🚀 Continuous Deployment
+
+**Continuous Deployment** automatically releases changes after they successfully pass all required automated checks.
+
+```text
+Code
+  ↓
+Build
+  ↓
+Test
+  ↓
+Automatic Deployment
+  ↓
+Production
+```
+
+> 💡 **Simple Definition:**
+> Continuous Deployment means that successfully tested changes can be **automatically deployed to production**.
+
+---
+
+## 🆚 Continuous Delivery vs Continuous Deployment
+
+| Feature                    | Continuous Delivery | Continuous Deployment |
+| :------------------------- | :-----------------: | :-------------------: |
+| Automated Build            |          ✅          |           ✅           |
+| Automated Testing          |          ✅          |           ✅           |
+| Software Ready for Release |          ✅          |           ✅           |
+| Production Deployment      |      Controlled     |       Automatic       |
+| Manual Approval            |   Usually Required  |      Not Required     |
+
+### Easy Way to Remember
+
+```text
+Continuous Delivery
+        │
+        ▼
+   Ready to Deploy
+
+
+Continuous Deployment
+        │
+        ▼
+ Automatically Deployed
+```
+
+---
+
+# ⚙️ What is a CI/CD Pipeline?
+
+A **CI/CD pipeline** is a sequence of automated steps that software goes through before being released.
+
+A basic pipeline:
+
+```text
+┌─────────────┐
+│    Code     │
+└──────┬──────┘
+       ▼
+┌─────────────┐
+│    Build    │
+└──────┬──────┘
+       ▼
+┌─────────────┐
+│    Test     │
+└──────┬──────┘
+       ▼
+┌─────────────┐
+│   Deploy    │
+└─────────────┘
+```
+
+---
+
+## 📋 Basic Pipeline Stages
+
+|     Stage     | Description                              |
+| :-----------: | :--------------------------------------- |
+|  💻 **Code**  | Developer writes or modifies source code |
+|  📤 **Push**  | Code is pushed to the repository         |
+|  🔨 **Build** | Application is compiled or packaged      |
+|  🧪 **Test**  | Automated tests verify the application   |
+| 🚀 **Deploy** | Successful application is released       |
+
+---
+
+# 🌿 Role of Git in CI/CD
+
+Git repositories commonly act as the starting point for CI/CD pipelines.
+
+```text
+Developer
+    │
+    ▼
+Write Code
+    │
+    ▼
+Git Commit
+    │
+    ▼
+Git Push
+    │
+    ▼
+GitHub / GitLab
+    │
+    ▼
+CI/CD Pipeline
+```
+
+A push to a repository can be configured to automatically trigger a CI/CD workflow.
+
+---
+
+# 🔨 Build Process
+
+During the build stage, source code is converted into a usable application package.
+
+For a Java Maven project:
+
+```bash
+mvn clean package
+```
+
+A successful build may generate a JAR file:
+
+```text
+target/
+└── application.jar
+```
+
+---
+
+# 🧪 Testing in CI/CD
+
+Automated testing is an important part of a CI/CD pipeline.
+
+If tests pass:
+
+```text
+Build
+  │
+  ▼
+Tests Passed
+  │
+  ▼
+Continue Pipeline
+```
+
+If tests fail:
+
+```text
+Build
+  │
+  ▼
+Tests Failed
+  │
+  ▼
+Stop Pipeline
+  │
+  ▼
+Developer Fixes Issue
+```
+
+> 💡 Automated testing helps prevent incorrect code from progressing further through the delivery process.
+
+---
+
+# 🚀 Deployment
+
+After successful build and testing, the application can be deployed.
+
+A simple environment flow can be:
+
+```text
+Development
+     │
+     ▼
+   Testing
+     │
+     ▼
+   Staging
+     │
+     ▼
+ Production
+```
+
+| Environment        | Purpose                         |
+| :----------------- | :------------------------------ |
+| 💻 **Development** | Application development         |
+| 🧪 **Testing**     | Application verification        |
+| 🎭 **Staging**     | Final testing before production |
+| 🚀 **Production**  | Live application for users      |
+
+---
+
+# 🧰 Common CI/CD Tools
+
+| Tool                   | Purpose                    |
+| :--------------------- | :------------------------- |
+| 🌿 **Git**             | Version control            |
+| ☁️ **GitHub / GitLab** | Source code hosting        |
+| 🔨 **Maven / Gradle**  | Build automation           |
+| 🔄 **Jenkins**         | CI/CD automation           |
+| ⚙️ **GitHub Actions**  | GitHub workflow automation |
+| 🦊 **GitLab CI/CD**    | GitLab pipeline automation |
+
+---
+
+# 🔁 Example CI/CD Workflow
+
+A simple end-to-end workflow:
+
+```text
+Developer
+    │
+    ▼
+Write Code
+    │
+    ▼
+Git Push
+    │
+    ▼
+CI Pipeline Starts
+    │
+    ▼
+Build Application
+    │
+    ▼
+Run Tests
+    │
+    ▼
+Tests Passed?
+  ┌─┴─┐
+ No   Yes
+ │     │
+ ▼     ▼
+Stop  Deploy
+ │
+ ▼
+Fix Code
+```
+
+---
+
+# 📚 Important CI/CD Terms
+
+| Term           | Meaning                                                 |
+| :------------- | :------------------------------------------------------ |
+| **CI**         | Continuous Integration                                  |
+| **CD**         | Continuous Delivery / Continuous Deployment             |
+| **Pipeline**   | Automated sequence of build, test, and deployment steps |
+| **Build**      | Process of preparing source code for execution          |
+| **Test**       | Verification that application behavior is correct       |
+| **Artifact**   | Output produced by the build process                    |
+| **Deploy**     | Release application to an environment                   |
+| **Production** | Live environment used by end users                      |
+| **Automation** | Performing processes automatically                      |
+
+---
+
+# 🆚 Manual Process vs CI/CD
+
+| Manual Process                   | CI/CD Process               |
+| :------------------------------- | :-------------------------- |
+| Build performed manually         | Build can be automated      |
+| Tests may be executed manually   | Tests can run automatically |
+| Slow feedback                    | Faster feedback             |
+| More repetitive work             | Reduced repetitive work     |
+| Deployment may take longer       | Deployment can be faster    |
+| Higher chance of manual mistakes | More consistent process     |
+
+---
+
+# 🧠 Quick Revision
+
+### What is CI?
+
+> **CI = Continuous Integration**
+
+Developers frequently integrate code changes, which can then be automatically built and tested.
+
+### What is Continuous Delivery?
+
+> The application is continuously maintained in a **deployment-ready state**.
+
+### What is Continuous Deployment?
+
+> Successful changes are **automatically deployed to production**.
+
+### What is a Pipeline?
+
+> A pipeline is a sequence of automated steps used to **build, test, and deploy an application**.
+
+---
+
+# 🎯 Key Takeaways
+
+* ✅ CI stands for **Continuous Integration**.
+* ✅ CD can mean **Continuous Delivery** or **Continuous Deployment**.
+* ✅ CI frequently integrates and verifies code changes.
+* ✅ CI/CD pipelines automate software delivery steps.
+* ✅ Build automation prepares the application.
+* ✅ Automated testing helps identify problems quickly.
+* ✅ Continuous Delivery keeps software ready to deploy.
+* ✅ Continuous Deployment can automatically release successful changes.
+* ✅ Git repositories can trigger CI/CD pipelines.
+* ✅ Jenkins and GitHub Actions are commonly used CI/CD tools.
+
+---
+
+# 🏁 Conclusion
+
+**CI/CD** helps automate the process of integrating, building, testing, and delivering software.
+
+The basic CI/CD workflow can be summarized as:
+
+```text
+Code
+  ↓
+Commit
+  ↓
+Push
+  ↓
+Build
+  ↓
+Test
+  ↓
+Deploy
+```
+
+By automating these steps, development teams can receive faster feedback and deliver applications more consistently.
+
+---
+
+> ### 🎉 CI/CD — Basic Concepts Completed
+>
+> **Cognizant Digital Nurture 5.0 — Java FSE**
